@@ -6,5 +6,3 @@ local AllowHwid = {
     ["440b9ed8-e090-4469-9cfc-e1e95fce6495"] = true,
     ["1280C6CB-7959-4FA4-870E-A80738C45A68"] = true
 }
-
-return AllowHwid
