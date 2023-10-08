@@ -1,4 +1,4 @@
-	local AllowHwid = {
+local AllowHwid = {
     	["7D9E100C-4744-4033-9C5C-2F63A12FE509"] = true,--my/perm
     	["4E48F139-1BA7-4013-8B4B-B44A690F722A"] = true,--บอส/perm
     	["0290300c-ec83-4ecf-92d7-f4e8d4fbdc49"] = true,--Eve/perm
