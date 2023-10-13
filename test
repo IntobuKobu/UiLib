@@ -1381,7 +1381,7 @@ end
 return Add,name,Inner,Shade,Text
 end
 
-function Feat:CreateTextbox(name, textlabel, text, func)
+function Feat:CreateTextbox(name, text, func)
     local name = tostring(name) or "InfiniX"
     local text = text or "TextBox"
     local func = func or function() end
@@ -1406,12 +1406,12 @@ function Feat:CreateTextbox(name, textlabel, text, func)
     Lib:UICorner(Padding, 4)
 
     local TextLabel = Instance.new("TextLabel")
-    TextLabel.Name = name
+    TextLabel.Name = "MyTextLabel"
     TextLabel.Parent = Padding
     TextLabel.Size = UDim2.new(1, 0, 0.2, 0) -- Adjust the size of the label as per your requirement
     TextLabel.Position = UDim2.new(0, 0, 0, 0) -- Adjust the position of the label as per your requirement
     TextLabel.BackgroundTransparency = 1
-    TextLabel.Text = textlabel -- Set your desired text here
+    TextLabel.Text = name -- Set your desired text here
     TextLabel.TextColor3 = Color3.new(1, 1, 1) -- Set your desired color here
     TextLabel.TextSize = 14 -- Set your desired size here
 
