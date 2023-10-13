@@ -1381,33 +1381,32 @@ end
 return Add,name,Inner,Shade,Text
 end
 
-function Feat:CreateTextbox(name,textlabel,text,func)
-local name = tostring(name) or "InfiniX"
-local textlabel = tostring(textlabel)
-local text = text or "TextBox"
-local func = func or function() end
+function Feat:CreateTextbox(name, textlabel, text, func)
+    local name = tostring(name) or "InfiniX"
+    local text = text or "TextBox"
+    local func = func or function() end
 
-local Inner,Shade,Text = Button(name,func)
-Text:Destroy()
+    local Inner, Shade, Text = Button(name, func)
+    Text:Destroy()
 
-local Padding = Instance.new("Frame")
-Padding.Visible = false
-Padding.Name = "TextBoxPadding"
-Padding.BorderSizePixel = 0
-Padding.Active = true
-Padding.BackgroundColor3 = Color3.fromRGB(75,75,75)
-Padding.Position = UDim2.new(0,0,0,0)
-Padding.Size = UDim2.new(1,0,1,0)
-Padding.Transparency = 0
-Padding.BackgroundTransparency = 0
-Padding.BorderSizePixel = 0
-Padding.ZIndex = 4
-Padding.SizeConstraint = "RelativeXY"
-Padding.Parent = Inner
-Lib:UICorner(Padding,4)
+    local Padding = Instance.new("Frame")
+    Padding.Visible = false
+    Padding.Name = "TextBoxPadding"
+    Padding.BorderSizePixel = 0
+    Padding.Active = true
+    Padding.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
+    Padding.Position = UDim2.new(0, 0, 0, 0)
+    Padding.Size = UDim2.new(1, 0, 1, 0)
+    Padding.Transparency = 0
+    Padding.BackgroundTransparency = 0
+    Padding.BorderSizePixel = 0
+    Padding.ZIndex = 4
+    Padding.SizeConstraint = "RelativeXY"
+    Padding.Parent = Inner
+    Lib:UICorner(Padding, 4)
 
-local TextLabel = Instance.new("TextLabel")
-    TextLabel.Name = "MyTextLabel"
+    local TextLabel = Instance.new("TextLabel")
+    TextLabel.Name = name
     TextLabel.Parent = Padding
     TextLabel.Size = UDim2.new(1, 0, 0.2, 0) -- Adjust the size of the label as per your requirement
     TextLabel.Position = UDim2.new(0, 0, 0, 0) -- Adjust the position of the label as per your requirement
