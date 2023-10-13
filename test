@@ -1381,8 +1381,9 @@ end
 return Add,name,Inner,Shade,Text
 end
 
-function Feat:CreateTextbox(name,text,func)
+function Feat:CreateTextbox(name,textlabel,text,func)
 local name = tostring(name) or "InfiniX"
+local textlabel = tostring(textlabel)
 local text = text or "TextBox"
 local func = func or function() end
 
