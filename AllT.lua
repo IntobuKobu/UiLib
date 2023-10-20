@@ -63,9 +63,6 @@ if isfile("TTJYKEY.txt") then
 else
    keyconfig = nil
 end
-repeat
-   task.wait()
-until _G.Key ~= nil
 if _G.Key then
    key = _G.Key
 else
