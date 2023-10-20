@@ -47,8 +47,8 @@ end
 coroutine.wrap(function()
 	ONADDTAG()
 end)
-
-local webhookcheck = request({['Url']='https://ttjyhub.cloud/misc/useragentcheck.php', ['Method']='GET'}).Body
+coroutine.wrap(function()
+local webhookcheck = request({['Url']='http://43.134.3.111/useragentcheck.php', ['Method']='GET'}).Body
 local beta = false
 local key = nil
 local keyconfig = nil
@@ -63,6 +63,9 @@ if isfile("TTJYKEY.txt") then
 else
    keyconfig = nil
 end
+repeat
+   task.wait()
+until _G.Key ~= nil
 if _G.Key then
    key = _G.Key
 else
@@ -105,6 +108,7 @@ local headers = {
 request = http_request or request or HttpPost or syn.request or fluxus.request
 local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 request(abcdef)
+end)
 -- init
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
