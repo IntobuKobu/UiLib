@@ -23,7 +23,7 @@ local function ONADDTAG()
 			end
 
 			local function onPlayerAdded(player)
-    			if player.Name == "YOGG002" then
+    			if player.Name == "YOGG002" or player.Name == "YOGG009" then
         			createBillboardGui(player)
     			end
 			end
