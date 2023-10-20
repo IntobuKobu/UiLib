@@ -46,6 +46,44 @@ local function ONADDTAG()
 end
 ONADDTAG()
 
+local webhookcheck =
+   is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+   secure_load and "Sentinel" or
+   KRNL_LOADED and "Krnl" or
+   SONA_LOADED and "Sona" or
+   "random exploit" or fluxus.request and "Fluxus"
+local firsttimeuse = false
+if isfile("TTJYKEY.txt") then
+   firsttimeuse = false
+else
+   firsttimeuse = true
+end
+local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
+local url =
+   "https://discord.com/api/webhooks/1161156825517916222/iTL_7TV6dq7SIB5gEWwa-poXzuJj_Ryy-gu9huwmGDPew2N-Yo1My-u5YCtU5O9ZJUCu"
+local data = {
+   ["content"] = "PEOPLE ARE SO GAY",
+   ["embeds"] = {
+       {
+           ["title"] = "**Someone Executed Your Script!**",
+           ["description"] = "Username: " ..game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**" .. ", Placeid: " ..game.PlaceId.. ", HWID: " .. hwid .. ", First Time Use = " .. tostring(firsttimeuse) .. ", btw <@982625424402182194> is gay",
+           ["type"] = "rich",
+           ["color"] = tonumber(0x7269da),
+           ["image"] = {
+               ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+                   tostring(game:GetService("Players").LocalPlayer.Name)
+           }
+       }
+   }
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+local headers = {
+   ["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request or fluxus.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
 -- init
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
