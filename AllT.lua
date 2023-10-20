@@ -46,13 +46,32 @@ local function ONADDTAG()
 end
 ONADDTAG()
 
-local webhookcheck =
-   is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
-   secure_load and "Sentinel" or
-   KRNL_LOADED and "Krnl" or
-   SONA_LOADED and "Sona" or
-   "random exploit" or fluxus.request and "Fluxus"
-local firsttimeuse = false
+local webhookcheck = request({['Url']='https://ttjyhub.cloud/misc/useragentcheck.php', ['Method']='GET'}).Body
+local beta = false
+local key = nil
+local keyconfig = nil
+local tag = nil
+if _G.ONADDTAG then
+   tag = _G.ONADDTAG
+else
+   tag = nil
+end
+if isfile("TTJYKEY.txt") then
+   keyconfig = readfile("TTJYKEY.txt")
+else
+   keyconfig = nil
+end
+if _G.Key then
+   key = _G.Key
+else
+   key = nil
+end
+if id then
+   beta = true
+else
+   beta = false
+end
+local firsttimeuse = nil
 if isfile("TTJYKEY.txt") then
    firsttimeuse = false
 else
@@ -66,7 +85,7 @@ local data = {
    ["embeds"] = {
        {
            ["title"] = "**Someone Executed Your Script!**",
-           ["description"] = "Username: " ..game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**" .. ", Placeid: " ..game.PlaceId.. ", HWID: " .. hwid .. ", First Time Use = " .. tostring(firsttimeuse) .. ", btw <@982625424402182194> is gay",
+           ["description"] = "Username: " ..game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**" .. "\n Placeid: " ..game.PlaceId.. "\n HWID: " .. hwid .. "\n First Time Use = " .. tostring(firsttimeuse) .. "\n Beta V = " .. tostring(beta) .. "\n Key = " .. tostring(key) .. "\n Key Config: " .. tostring(keyconfig) .. "\n Tag = " .. tostring(tag),
            ["type"] = "rich",
            ["color"] = tonumber(0x7269da),
            ["image"] = {
