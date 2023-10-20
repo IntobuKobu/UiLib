@@ -56,7 +56,7 @@ local tag = nil
 if _G.ONADDTAG then
    tag = _G.ONADDTAG
 else
-   tag = nil
+   tag = false
 end
 if isfile("TTJYKEY.txt") then
    keyconfig = readfile("TTJYKEY.txt")
