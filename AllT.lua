@@ -1,4 +1,3 @@
-_G.ONADDTAG = true
 coroutine.wrap(function()
 local function ONADDTAG()
 	if _G.ONADDTAG == true then
