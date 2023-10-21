@@ -42,7 +42,7 @@ local function ONADDTAG()
 			end
 		end
 	else
-		break
+	
 	end
 end
 ONADDTAG()
@@ -106,8 +106,6 @@ local headers = {
 request = http_request or request or HttpPost or syn.request or fluxus.request
 local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 request(abcdef)
-		task.wait()
-		break
 end)()
 -- init
 local player = game.Players.LocalPlayer
